@@ -34,5 +34,6 @@ before_script:
 
 script:
  - ./gradlew build connectedCheck
- - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./travis/run_on_pull_requests; fi'
- - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./travis/run_on_non_pull_requests; fi'
+
+after_success:
+  - "curl -o /tmp/travis-automerge https://github.com/Guillaume-GitHub/travis.git/cdown/travis-automerge/master/travis-automerge"
