@@ -33,7 +33,4 @@ before_script:
   - adb shell input keyevent 82 &
 
 script:
- - ./gradlew build connectedCheck
-
-after_success:
-  - "curl -o /tmp/travis-automerge https://github.com/Guillaume-GitHub/travis.git/cdown/travis-automerge/master/travis-automerge"
+ - ./gradlew build connectedCheck --info
