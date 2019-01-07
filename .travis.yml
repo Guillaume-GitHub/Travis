@@ -42,3 +42,8 @@ before_script:
 
 script:
  - ./gradlew build connectedCheck --info
+ 
+on_failure:
+ - cd home/travis/build/Guillaume-GitHub/travis/app/build/reports/tests/testDebugUnitTest/
+ - echo index.html
+ 
