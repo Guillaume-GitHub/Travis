@@ -32,6 +32,12 @@ android:
 
 before_install:
  - chmod +x gradlew
-
-script:
- - ./gradlew build test --info
+ 
+jobs:
+ include:
+   - stage: Tests
+     name: "Unit Test"
+     script: ./gradlew build test --info
+     
+   - name: "Integration Tests"
+     script: ./gradlew build androidTest --info
