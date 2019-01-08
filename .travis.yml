@@ -3,9 +3,9 @@ sudo: required
 jdk: oraclejdk8
 
 jobs:  
-  include:
-    - stage: "Install Version"                # naming the Tests stage
-      name: "Install check"            # names the first Tests stage job
+ include:
+  - stage: "Install Version"                # naming the Tests stage
+    name: "Install check"            # names the first Tests stage job
       script:
         before_cache:
           - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
