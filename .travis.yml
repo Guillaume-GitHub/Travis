@@ -30,7 +30,6 @@ android:
 
 before_install:
  - chmod +x gradlew
- - ./gradlew dependencies || true
  
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -51,8 +50,6 @@ cache:
   
 jobs:
  include:
-   - stage: Install
-     script: ./gradlew assemble
    - stage: Tests
      name: "Unit Test"
      script: ./gradlew build test --info
