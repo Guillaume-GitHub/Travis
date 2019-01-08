@@ -21,7 +21,7 @@ android:
     # Specify at least one system image,
     # to run emulator(s) during your tests
     # - sys-img-x86-28
-    # - sys-img-armeabi-v7a-android-22
+    # - sys-img-armeabi-v7a-androiconnectedAndroidTestd-22
 
 before_install:
  - chmod +x gradlew
@@ -43,4 +43,4 @@ cache:
   # - android-wait-for-emulator
   # - adb shell input keyevent 82 &
   
-script: ./gradlew connectedAndroidTest --stacktrace
+script: ./gradlew test --stacktrace
