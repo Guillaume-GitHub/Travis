@@ -2,6 +2,11 @@ language: android
 sudo: required
 jdk: oraclejdk8
 
+stages:
+  - compile
+  - test
+  - deploy
+
 env:
   matrix:
     - COMPILE=compile
@@ -57,5 +62,5 @@ before_script:
 jobs:
   include:
     - stage: compile
-    _ stage: test
+    - stage: test
       script: ./gradlew $TEST_SUITE --stacktrace
