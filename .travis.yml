@@ -62,5 +62,5 @@ before_script:
 jobs:
   include:
     - stage: compile
-    - stage: test
-      script: ./gradlew $TEST_SUITE --stacktrace
+
+script: ./gradlew $TEST_SUITE --stacktrace
