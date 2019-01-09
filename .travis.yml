@@ -9,7 +9,6 @@ stages:
 
 env:
   matrix:
-    - COMPILE=compile
     - TEST_SUITE=test
     - TEST_SUITE=connectedAndroidTest
 
