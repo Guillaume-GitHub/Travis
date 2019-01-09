@@ -1,15 +1,8 @@
 language: android
 sudo: required
 jdk: oraclejdk8
-
-stages:
-  - compile
-  - test
   
 env:
-  matrix:
-    - TEST_SUITE=test
-    - TEST_SUITE=connectedAndroidTest
   global:
     - ANDROID_VERSION=android-28
     - BUILD_TOOLS_VERSION=build-tools-28.0.3
@@ -38,9 +31,9 @@ android:
     - android-22
 
     # Additional components
-    - extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
+    # - extra-google-google_play_services
+    # - extra-google-m2repository
+    # - extra-android-m2repository
 
     # Specify at least one system image,
     # to run emulator(s) during your tests
@@ -61,7 +54,4 @@ before_script:
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
 
-jobs:
-  include:
-    - stage: compile
-
+script: ./gradlew build connectedAndroidTest --stacktrace
