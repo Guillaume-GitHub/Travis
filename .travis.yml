@@ -4,6 +4,7 @@ jdk: oraclejdk8
 
 env:
   matrix:
+    - COMPILE=compile
     - TEST_SUITE=test
     - TEST_SUITE=connectedAndroidTest
 
@@ -56,5 +57,5 @@ before_script:
 jobs:
   include:
     - stage: compile
-    
-script: ./gradlew $TEST_SUITE --stacktrace
+    _ stage: test
+      script: ./gradlew $TEST_SUITE --stacktrace
