@@ -2,6 +2,20 @@ language: android
 sudo: required
 jdk: oraclejdk8
 
+env:
+  - UNIT_TEST=test
+  - INTEGRATION_TEST=androidTest
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
+
 android:
   components:
     - tools
@@ -25,16 +39,6 @@ android:
 
 before_install:
  - chmod +x gradlew
- 
-before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-  
-cache:
-  directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-    - $HOME/.android/build-cache
     
 # before_script:
   # Create and start emulator
@@ -43,4 +47,6 @@ cache:
   # - android-wait-for-emulator
   # - adb shell input keyevent 82 &
   
-script: ./gradlew test --stacktrace
+script:
+  - ./gradlew $UNIT_TEST --stacktrace
+  - ./gradlew $INTEGRATION_TEST --stacktrace
