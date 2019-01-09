@@ -1,10 +1,11 @@
 language: android
 sudo: required
-jdk: oraclejdk8
+jdk: oraclejdk11
 
 env:
-  - UNIT_TEST=test
-  - INTEGRATION_TEST=androidTest
+  matrix:
+    - TEST_SUITE=test
+    - TEST_SUITE=androidTest
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -34,19 +35,26 @@ android:
 
     # Specify at least one system image,
     # to run emulator(s) during your tests
-    # - sys-img-x86-28
-    # - sys-img-armeabi-v7a-androiconnectedAndroidTestd-22
+    - sys-img-x86-28
+    - sys-img-armeabi-v7a-androiconnectedAndroidTestd-22
+  licenses:
+    - 'android-sdk-preview-license-.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
 
 before_install:
  - chmod +x gradlew
     
-# before_script:
-  # Create and start emulator
-  # - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-  # - emulator -avd test -no-skin -no-audio -no-window &
-  # - android-wait-for-emulator
-  # - adb shell input keyevent 82 &
+before_script:
+  Create and start emulator
+  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
   
-script:
-  - ./gradlew $UNIT_TEST --stacktrace
-  - ./gradlew $INTEGRATION_TEST --stacktrace
+script: ./gradlew $TEST_SUITE --stacktrace
+
+notifications:
+  email:
+    on_success: always # default: change
+    on_failure: always # default: always
