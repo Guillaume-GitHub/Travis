@@ -36,7 +36,7 @@ android:
     # Specify at least one system image,
     # to run emulator(s) during your tests
     - sys-img-x86-28
-    - sys-img-armeabi-v7a-androiconnectedAndroidTestd-22
+    - sys-img-armeabi-v7a-android-22
   licenses:
     - 'android-sdk-preview-license-.+'
     - 'android-sdk-license-.+'
