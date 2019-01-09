@@ -5,7 +5,7 @@ jdk: oraclejdk8
 env:
   matrix:
     - TEST_SUITE=test
-    - TEST_SUITE=androidTest
+    - TEST_SUITE=connectedAndroidTest
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
