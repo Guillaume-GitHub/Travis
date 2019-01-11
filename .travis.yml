@@ -1,3 +1,4 @@
+
 language: android
 sudo: required
 jdk: oraclejdk8
@@ -50,12 +51,8 @@ before_script:
   - adb shell input keyevent 82 &
 
 script: 
-  - ./app/src/androidTest/java/com/example/guillaume/myapplication/ExampleInstrumentedTest.java --stacktrace
-  - ./app/src/test/java/com/example/guillaume/myapplication/ExampleUnitTest.java --stacktrace
+  - ./gradlew connectedAndroidTest --stacktrace
+  - ./gradlew test --stacktrace
 
 before_install:
           - chmod +x gradlew
-          
-notifications:
-  on_success: always # default: change
-  on_failure: always # default: always
