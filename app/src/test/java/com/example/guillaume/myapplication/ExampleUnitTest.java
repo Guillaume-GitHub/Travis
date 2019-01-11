@@ -17,6 +17,6 @@ public class ExampleUnitTest {
 
     @Test
     public void test_isCorrect() {
-        assertEquals(10, 2 + 2);
+        assertEquals(10, 1);
     }
 }
