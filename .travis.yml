@@ -1,6 +1,6 @@
 language: android
 sudo: required
-jdk: oraclejdk11
+jdk: oraclejdk8
   
 env:
   global:
@@ -51,8 +51,7 @@ before_script:
 
 jobs:
   include:
-    - stage: Build
-      script: ./gradlew build
+    - stage: Intallation
     - stage: Integration Tests
       script: ./gradlew connectedAndroidTest --stacktrace
     - stage: Unit Tests
