@@ -52,7 +52,7 @@ before_script:
 script: 
   - ./gradlew connectedAndroidTest --stacktrace
   - ./gradlew test --stacktrace
-  - ///home/travis/build/Guillaume-GitHub/travis/app/build/reports/tests/ //home/user/guillaume/documents
+  - cp ///home/travis/build/Guillaume-GitHub/travis/app/build/reports/tests/ //home/user/guillaume/documents
 
 before_install:
           - chmod +x gradlew
