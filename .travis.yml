@@ -50,13 +50,8 @@ before_script:
   - adb shell input keyevent 82 &
 
 script: 
-  - ./gradlew connectedAndroidTest --stacktrace
-  - ./gradlew test --stacktrace
+  - ./gradlew connectedAndroidTest --debug
+  - ./gradlew test --debug
 
 before_install:
           - chmod +x gradlew
-
-
-after_failure:
-  - cat target/surefire-reports/*.txt
-
