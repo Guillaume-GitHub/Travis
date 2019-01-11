@@ -57,3 +57,6 @@ script:
 before_install:
           - chmod +x gradlew
 
+
+after_failure: "cat $TRAVIS_BUILD_DIR/app/build/outputs/lint-results-debug.xml"
+
