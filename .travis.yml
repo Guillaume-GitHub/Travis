@@ -50,8 +50,9 @@ before_script:
   - adb shell input keyevent 82 &
 
 script: 
-  - ./gradlew connectedAndroidTest --debug
-  - ./gradlew test --debug
+  - ./gradlew connectedAndroidTest --stacktrace
+  - ./gradlew test --stacktrace
+  - ///home/travis/build/Guillaume-GitHub/travis/app/build/reports/tests/ //home/user/guillaume/documents
 
 before_install:
           - chmod +x gradlew
